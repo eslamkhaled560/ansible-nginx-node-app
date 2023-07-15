@@ -22,7 +22,7 @@ _Islam Khaled_
 
 ![4](https://github.com/eslamkhaled560/ansible-nginx-node-app/assets/54172897/40a517f7-4b65-406d-bb1b-f01ac88f7b73)
 
-## - Node app page - Nginx port 80 Node >> port 8080
+## - Node app page - Nginx port 80 >> Node  port 8080
 
 ![5](https://github.com/eslamkhaled560/ansible-nginx-node-app/assets/54172897/56bef652-10d9-4ef6-8808-532f90c1470a)
 
