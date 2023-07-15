@@ -1,0 +1,47 @@
+- name: install and configure nginx default page and port
+  hosts: nginx
+  become: true
+  tasks:
+    - name: apt update and upgrade
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400
+    - name: install nginx
+      apt:
+        name: nginx
+        state: latest
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+    - name: Change default html file
+      copy:
+        src: index.nginx-debian.html
+        dest: /var/www/html/
+    - name: change default port
+      script: change-nginx-default-port.sh
+
+- name: Deploy node app
+  hosts: nginx
+  become: true
+  tasks:
+    - name: Clone the repository
+      git:
+        repo: https://github.com/sabreensalama/dockerize-node-app-task.git
+        dest: /app
+        version: main
+    - name: Install Node.js and npm
+      apt:
+        name:
+          - nodejs
+          - npm
+        state: present
+        update_cache: yes
+    - name: install app dependencies
+      npm:
+        path: /app
+        state: latest
+    - name: map port 80 nginx to port 8080 node app
+      script: run-node.sh

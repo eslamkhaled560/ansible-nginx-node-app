@@ -1,0 +1,1 @@
+nginx ansible_host=NGINX_PUB_IP ansible_user=ubuntu ansible_ssh_private_key_file=/home/islam/.aws/win11-key.pem
