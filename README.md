@@ -1,4 +1,4 @@
-# Ansible Lab 1 - Nginx & Java App Configuration
+# Ansible Lab 1 - Nginx & Nava App Configuration
 
 **Presented to:**    
 _Sabreen Salama_    
